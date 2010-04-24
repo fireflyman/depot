@@ -2,7 +2,10 @@
   <b>Title:</b>
   <%=h @product.title %>
 </p>
-
+        <p>
+             <b>Image</b>
+            <%= image_tag product.image_url %>
+         </p>
 <p>
   <b>Description:</b>
   <%= @product.description %>
