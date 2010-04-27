@@ -1,0 +1,95 @@
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-04-27 11:24:21) [GET]
+  Session ID: 697c8906f26864e606d4e9a3f2cbc6cd
+  Parameters: {"action"=>"index", "controller"=>"products"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/admin/login
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x66157b4 @filter=:authorize>] rendered_or_redirected.
+Completed in 0.04600 (21 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/products]
+
+
+Processing AdminController#login (for 127.0.0.1 at 2010-04-27 11:24:21) [GET]
+  Session ID: 697c8906f26864e606d4e9a3f2cbc6cd
+  Parameters: {"action"=>"login", "controller"=>"admin"}
+Rendering template within layouts/store
+Rendering admin/login
+Completed in 0.12500 (8 reqs/sec) | Rendering: 0.11000 (88%) | DB: 0.00000 (0%) | 200 OK [http://localhost/admin/login]
+
+
+Processing AdminController#login (for 127.0.0.1 at 2010-04-27 11:24:33) [POST]
+  Session ID: 697c8906f26864e606d4e9a3f2cbc6cd
+  Parameters: {"name"=>"dave", "commit"=>"Login", "authenticity_token"=>"3461e266e58e7f30eede8def68e861b4c67d18c7", "action"=>"login", "controller"=>"admin", "password"=>"secret"}
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users WHERE (users."name" = 'dave') LIMIT 1[0m
+Redirected to http://localhost:3000/products
+Completed in 0.04700 (21 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/admin/login]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-04-27 11:24:33) [GET]
+  Session ID: 697c8906f26864e606d4e9a3f2cbc6cd
+  Parameters: {"action"=>"index", "controller"=>"products"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 3) LIMIT 1[0m
+  [4;35;1mProduct Load (0.000000)[0m   [0mSELECT * FROM products [0m
+Rendering template within layouts/store
+Rendering products/index
+Completed in 0.18800 (5 reqs/sec) | Rendering: 0.12500 (66%) | DB: 0.00000 (0%) | 200 OK [http://localhost/products]
+
+
+Processing OrdersController#index (for 127.0.0.1 at 2010-04-27 11:24:40) [GET]
+  Session ID: 697c8906f26864e606d4e9a3f2cbc6cd
+  Parameters: {"action"=>"index", "controller"=>"orders"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 3) LIMIT 1[0m
+  [4;35;1mOrder Load (0.015000)[0m   [0mSELECT * FROM orders [0m
+Rendering template within layouts/store
+Rendering orders/index
+Completed in 0.11000 (9 reqs/sec) | Rendering: 0.03200 (29%) | DB: 0.01500 (13%) | 200 OK [http://localhost/orders]
+
+
+Processing OrdersController#index (for 127.0.0.1 at 2010-04-27 11:26:40) [GET]
+  Session ID: 697c8906f26864e606d4e9a3f2cbc6cd
+  Parameters: {"action"=>"index", "controller"=>"orders"}
+  [4;36;1mUser Load (0.016000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 3) LIMIT 1[0m
+  [4;35;1mOrder Load (0.000000)[0m   [0mSELECT * FROM orders [0m
+Rendering template within layouts/store
+Rendering orders/index
+Completed in 0.09400 (10 reqs/sec) | Rendering: 0.03100 (32%) | DB: 0.01600 (17%) | 200 OK [http://localhost/orders]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-04-27 11:28:48) [GET]
+  Session ID: 697c8906f26864e606d4e9a3f2cbc6cd
+  Parameters: {"action"=>"index", "controller"=>"products"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 3) LIMIT 1[0m
+  [4;35;1mProduct Load (0.000000)[0m   [0mSELECT * FROM products [0m
+Rendering template within layouts/store
+Rendering products/index
+Completed in 0.17200 (5 reqs/sec) | Rendering: 0.06300 (36%) | DB: 0.00000 (0%) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-04-27 11:31:22) [GET]
+  Session ID: 697c8906f26864e606d4e9a3f2cbc6cd
+  Parameters: {"action"=>"index", "controller"=>"products"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 3) LIMIT 1[0m
+  [4;35;1mProduct Load (0.000000)[0m   [0mSELECT * FROM products [0m
+Rendering template within layouts/store
+Rendering products/index
+Completed in 0.17200 (5 reqs/sec) | Rendering: 0.04700 (27%) | DB: 0.00000 (0%) | 200 OK [http://localhost/products]
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2010-04-27 11:31:27) [GET]
+  Session ID: 697c8906f26864e606d4e9a3f2cbc6cd
+  Parameters: {"action"=>"edit", "id"=>"4", "controller"=>"products"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 3) LIMIT 1[0m
+  [4;35;1mProduct Load (0.000000)[0m   [0mSELECT * FROM products WHERE (products."id" = 4) [0m
+Rendering template within layouts/store
+Rendering products/edit
+Completed in 0.17200 (5 reqs/sec) | Rendering: 0.06200 (36%) | DB: 0.00000 (0%) | 200 OK [http://localhost/products/4/edit]
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2010-04-27 11:34:06) [GET]
+  Session ID: 697c8906f26864e606d4e9a3f2cbc6cd
+  Parameters: {"action"=>"index", "controller"=>"products"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 3) LIMIT 1[0m
+  [4;35;1mProduct Load (0.000000)[0m   [0mSELECT * FROM products [0m
+Rendering template within layouts/store
+Rendering products/index
+Completed in 0.12500 (8 reqs/sec) | Rendering: 0.04700 (37%) | DB: 0.00000 (0%) | 200 OK [http://localhost/products]
