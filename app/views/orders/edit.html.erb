@@ -18,10 +18,14 @@
     <%= f.text_field :email %>
   </p>
 
-  <p>
-    <b>Pay type</b><br />
-    <%= f.text_field :pay_type %>
-  </p>
+  <div>
+              <%= f.label :pay_type, "Pay with:" %>
+              <%=
+                 f.select :pay_type,
+                                 Order::PAYMENT_TYPES,
+                                 :prompt => "Select a payment method"
+               %>
+           </div>
 
   <p>
     <%= f.submit "Update" %>

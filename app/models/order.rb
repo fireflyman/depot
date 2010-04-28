@@ -18,4 +18,19 @@ validates_inclusion_of :pay_type, :in =>
     end
   end
   
+ 
+  def total 
+    line_items.inject(0) {|sum, n| n.product.price * n.quantity + sum} 
+  end
+  
+  
+  def close 
+    self.status = 'closed' 
+    save! 
+  end
+  
+  def closed? 
+    status == 'closed' 
+  end
+  
 end

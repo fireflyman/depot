@@ -1,26 +1,30 @@
-<h1>Listing orders</h1>
+<%= render :partial => 'navigation'%>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Email</th>
-    <th>Pay type</th>
+    <th>ID</th>
+    <th>Status</th>
+    <th>Total</th>
+    <th></th>
   </tr>
 
+<br />
 <% for order in @orders %>
   <tr>
-    <td><%=h order.name %></td>
-    <td><%=h order.address %></td>
-    <td><%=h order.email %></td>
-    <td><%=h order.pay_type %></td>
-    <td><%= link_to 'Show', order %></td>
-    <td><%= link_to 'Edit', edit_order_path(order) %></td>
-    <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+    <td align="right"><%=h order.id %></td> 
+    <td align="right"><%=h order.status %></td> 
+    <td align="right"><%=h order.total %></td>
+    <td><%= link_to  "<img src='/images/bu.gif', border='0', alt = '­q³æ'>", order %></td>
+     
 <% end %>
 </table>
 
 <br />
-
+<%= will_paginate @orders ,
+    :inner_window => 1,  
+    :outer_window => 1,  
+    :prev_label => 'Previous',  
+    :next_label => 'Next'
+  %>
+  <br />
 <%= link_to 'New order', new_order_path %>

@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.xml
+=begin
   def index
     @orders = Order.find(:all)
 
@@ -9,9 +10,30 @@ class OrdersController < ApplicationController
       format.xml  { render :xml => @orders }
     end
   end
+=end
+  def index
+    @status = params[:id]
+    if @status.blank?
+      @status = 'all'
+      conditions = nil
+    else
+      conditions = "status = '#{@status}'"
+    end
+    @page_title = "Listing #{@status} orders"
+    @orders = Order.paginate :page =>params[:page], 
+                                     :order => 'created_at desc', 
+                                     :conditions => conditions,
+                                     :per_page => 6
+
+  end
 
   # GET /orders/1
   # GET /orders/1.xml
+  def show
+    @page_title = "Displaying order #{params[:id]}" 
+    @order = Order.find(params[:id]) 
+  end
+=begin 
   def show
     @order = Order.find(params[:id])
 
@@ -20,7 +42,7 @@ class OrdersController < ApplicationController
       format.xml  { render :xml => @order }
     end
   end
-
+=end
   # GET /orders/new
   # GET /orders/new.xml
   def new
@@ -82,4 +104,12 @@ class OrdersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def close 
+    order = Order.find(params[:id]) 
+    order.close 
+    flash[:notice] = "Order #{order.id} has been closed" 
+    redirect_to :action => 'index', :id => 'closed' 
+  end
+  
 end

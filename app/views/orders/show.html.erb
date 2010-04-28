@@ -1,22 +1,37 @@
-<p>
-  <b>Name:</b>
-  <%=h @order.name %>
-</p>
+<%= render :partial => 'navigation' %> 
+<p> 
+  <b>Order total $</b>
+  <%=h @order.total %> 
+</p> 
+<h2>Contact Information</h2> 
+<dl> 
+  <dt><b>ID</b></dt> 
+  <dd><%= @order.id %></dd> 
+  <dt><b>Email</b></dt> 
+  <dd><%= @order.email %></dd> 
+</dl> 
 
-<p>
-  <b>Address:</b>
-  <%=h @order.address %>
-</p>
+<h2>Shipping Address</h2> 
+<dl> 
+  <dt><b>Name</b></dt> 
+  <dd><%= @order.name %></dd> 
+  <dt><b>Address</b></dt> 
+  <dd><%= @order.address %></dd> 
+  <dt><b>Pay type</b></dt>
+  <dd><%= @order.pay_type %></dd>
+</dl>
 
-<p>
-  <b>Email:</b>
-  <%=h @order.email %>
-</p>
-
-<p>
-  <b>Pay type:</b>
-  <%=h @order.pay_type %>
-</p>
+<h2>Order Details</h2> 
+<% for item in @order.line_items %> 
+  <%= link_to item.product.title, :action => "show", 
+        :controller => "products", :id => item.product.id %> 
+  <%= pluralize(item.quantity, "pc", "pcs") %>, 
+  $<%= item.product.price* item.quantity %>
+  <br /> 
+<% end %> 
+<p> 
+  <%= button_to "Close Order", :action => 'close', :id => @order unless @order.closed? %> 
+</p> 
 
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
