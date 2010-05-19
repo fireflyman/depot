@@ -15,11 +15,12 @@
               </dl>
          </td>
          
+        
          <td class="list-actions">
-              <%= link_to 'Show', product %><br/>
+              <%= link_to '查看', product %><br/>
               <%= link_to  "<img src='/images/icon_edit.gif', border='0' >", edit_product_path(product) %><br/>
-              <%= link_to 'Destroy', product,
-                          :confirm => 'Are you sure?',
+              <%= link_to '刪除', product,
+                          :confirm => "你確定要刪除商品#{product.title}?",
                           :method => :delete %>
           </td>
       </tr>
@@ -28,4 +29,4 @@
 </div>
 
 <br />
-<%= link_to 'New Product', new_product_path %>
+<%= link_to '新增商品', new_product_path %>

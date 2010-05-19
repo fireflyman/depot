@@ -1,3 +1,5 @@
+
+
 <p>
   <b>Title:</b>
   <%=h @product.title %>
@@ -5,17 +7,31 @@
         <p>
              <b>Image</b>
             <%= image_tag @product.image_url %>
-         </p>
+    </p>
+    
 <p>
   <b>Description:</b>
   <%= @product.description %>
 </p>
+<p>
 
-<p><b>Price</b>
+<b>Price</b>
   <%=h @product.price %>
 </p>
   
-
+<%= select_date(Date.today, :include_blank => true) %>
+<%= select_month(Date.today, :use_month_numbers => true) %>
+<%= select_month(Date.today, :add_month_numbers => true) %>
+<%= select_month(Date.today, :use_short_month => true) %>
+<%= select_month(Date.today, :use_month_names => %w(J F M A B C D E G H U E )) %>
+<br />
+<%= select_date(Date.today, :use_hidden => true) %>
+<%= select_month(Date.today, :prefix => "love") %>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+
+<script type="text/javascript" >
+  fix_image_size($$('div#products_description image_url'), 700); 
+</script>
+

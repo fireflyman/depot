@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+ acts_as_translatebox :only => ["index","show"]
+
   uses_tiny_mce( :options => {
     :theme => 'advanced', 
     :language => 'zh',

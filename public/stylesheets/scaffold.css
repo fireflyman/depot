@@ -72,3 +72,7 @@ div.progressBar div.background {
   width: 0%;
 }
 
+/* 图片缩小后鼠标指针的样式 */
+img.magplus {
+    cursor: url(/images/magplus.gif), pointer;
+}

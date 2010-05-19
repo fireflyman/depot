@@ -1,0 +1,10 @@
+--- 
+user: deploy
+cwd: /var/www/apps/railsway/current
+log_file: log/mongrel.log
+port: "8000"
+environment: production
+group: depoly
+address: 127.0.0.1
+pid_file: /var/www/apps/railsway/shared/pids/mongrel.pid
+servers: 2
